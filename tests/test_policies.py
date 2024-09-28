@@ -29,6 +29,7 @@ from lerobot.common.datasets.utils import cycle
 from lerobot.common.envs.factory import make_env
 from lerobot.common.envs.utils import preprocess_observation
 from lerobot.common.policies.act.modeling_act import ACTTemporalEnsembler
+from lerobot.common.policies.interact.modeling_interact import InterACTTemporalEnsembler
 from lerobot.common.policies.factory import (
     _policy_cfg_from_hydra_cfg,
     get_policy_and_config_classes,

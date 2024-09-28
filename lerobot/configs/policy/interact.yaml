@@ -12,7 +12,7 @@ override_dataset_stats:
 training:
   offline_steps: 100000
   online_steps: 0
-  eval_freq: 200
+  eval_freq: 20000
   save_freq: 20000
   save_checkpoint: true
 
@@ -32,7 +32,7 @@ eval:
 
 # See `configuration_act.py` for more details.
 policy:
-  name: act
+  name: interact
 
   # Input / output structure.
   n_obs_steps: 1
@@ -65,10 +65,13 @@ policy:
   dim_feedforward: 3200
   feedforward_activation: relu
   n_encoder_layers: 4
+  num_blocks: 3
+  num_cls_tokens_arm: 7
+  num_cls_tokens_image: 5
   # Note: Although the original ACT implementation has 7 for `n_decoder_layers`, there is a bug in the code
   # that means only the first layer is used. Here we match the original implementation by setting this to 1.
   # See this issue https://github.com/tonyzhaozh/act/issues/25#issue-2258740521.
-  n_decoder_layers: 1
+  n_decoder_layers: 4
   # VAE.
   use_vae: true
   latent_dim: 32

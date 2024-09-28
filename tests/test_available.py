@@ -20,6 +20,7 @@ import pytest
 
 import lerobot
 from lerobot.common.policies.act.modeling_act import ACTPolicy
+from lerobot.common.policies.interact.modeling_interact import InteractPolicy
 from lerobot.common.policies.diffusion.modeling_diffusion import DiffusionPolicy
 from lerobot.common.policies.tdmpc.modeling_tdmpc import TDMPCPolicy
 from lerobot.common.policies.vqbet.modeling_vqbet import VQBeTPolicy
