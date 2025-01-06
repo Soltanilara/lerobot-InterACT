@@ -12,12 +12,13 @@ override_dataset_stats:
 training:
   offline_steps: 100000
   online_steps: 0
-  eval_freq: 20000
-  save_freq: 20000
+  eval_freq: 1000
+  save_freq: 1000
+  log_freq: 100
   save_checkpoint: true
 
   batch_size: 8
-  lr: 1e-5
+  lr: 2e-5
   lr_backbone: 1e-5
   weight_decay: 1e-4
   grad_clip_norm: 10
@@ -64,16 +65,18 @@ policy:
   n_heads: 8
   dim_feedforward: 3200
   feedforward_activation: relu
-  n_encoder_layers: 4
-  num_blocks: 3
-  num_cls_tokens_arm: 7
-  num_cls_tokens_image: 5
+
+  num_blocks: 4
+  num_cls_tokens_arm: 1
+  num_cls_tokens_image: 1
+  n_decoder_layers: 4
   # Note: Although the original ACT implementation has 7 for `n_decoder_layers`, there is a bug in the code
   # that means only the first layer is used. Here we match the original implementation by setting this to 1.
   # See this issue https://github.com/tonyzhaozh/act/issues/25#issue-2258740521.
-  n_decoder_layers: 4
+  n_pre_decoder_layers: 2
+  n_post_decoder_layers: 2
   # VAE.
-  use_vae: true
+ 
   latent_dim: 32
   n_vae_encoder_layers: 4
 
@@ -83,3 +86,5 @@ policy:
   # Training and loss computation.
   dropout: 0.1
   kl_weight: 10.0
+
+  use_av_arm: false
