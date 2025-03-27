@@ -249,6 +249,16 @@ python lerobot/scripts/train.py \
     dataset_repo_id=lerobot/aloha_sim_insertion_human \
 ```
 
+Here is an example off training the InterACT policy
+
+```bash
+python lerobot/scripts/train.py \
+    policy=interact \
+    env=aloha \
+    env.task=AlohaInsertion-v0 \
+    dataset_repo_id=lerobot/aloha_sim_insertion_human \
+```
+
 The experiment directory is automatically generated and will show up in yellow in your terminal. It looks like `outputs/train/2024-05-05/20-21-12_aloha_act_default`. You can manually specify an experiment directory by adding this argument to the `train.py` python command:
 ```bash
     hydra.run.dir=your/new/experiment/dir
