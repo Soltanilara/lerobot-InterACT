@@ -127,14 +127,18 @@ class InterACTConfig:
     dim_feedforward: int = 3200
     feedforward_activation: str = "relu"
     num_blocks: int = 3
-    num_cls_tokens_arm: int = 7
-    num_cls_tokens_image: int = 5
+    num_cls_tokens_arm: int = 3
+    num_cls_tokens_image: int = 3
+
+    n_decoder_layers: int = 4
     # Note: Although the original ACT implementation has 7 for `n_decoder_layers`, there is a bug in the code
     # that means only the first layer is used. Here we match the original implementation by setting this to 1.
     # See this issue https://github.com/tonyzhaozh/act/issues/25#issue-2258740521.
-    n_decoder_layers: int = 4
+    n_pre_decoder_layers: int = 2
+    n_post_decoder_layers: int = 2
+    n_sync_decoder_layers: int = 1
     # VAE.
-    use_vae: bool = True
+    use_av_arm: bool = False
     latent_dim: int = 32
     n_vae_encoder_layers: int = 4
 
